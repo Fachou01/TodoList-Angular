@@ -6,8 +6,7 @@ import { Tasks } from '../models/Tasks';
 })
 export class TaskServiceService {
   task!: Tasks;
-  tasks: Tasks[] =[
-    new Tasks('initial task',false),new Tasks('second task',false)]; 
+  tasks: Tasks[] =[]; 
   
   constructor() { }
 
