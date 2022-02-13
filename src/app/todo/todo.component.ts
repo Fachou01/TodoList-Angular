@@ -11,7 +11,7 @@ export class TodoComponent implements OnInit {
 
   @Input()
   task!: Tasks;
-  
+  check = false;
   constructor(private taskService :TaskServiceService) { }
 
   ngOnInit(): void {
@@ -20,6 +20,9 @@ export class TodoComponent implements OnInit {
   deleteTask(){
     this.taskService.removeTask(this.task);
 
+  }
+  checkTask(){
+    this.check = !this.check;
   }
 
 }
