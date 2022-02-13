@@ -1,0 +1,12 @@
+<form (submit)="addTask()" class="d-flex justify-content-center align-items-center mb-4">
+    <div class="form-outline flex-fill">
+        <input type="text" id="form2" name="task" [(ngModel)]="task" class="form-control" placeholder="New task..." />
+    </div>
+    <button type="submit" class="btn btn-info ms-2 text-white">Add</button>
+</form>
+<!-- Nav -->
+<!--<app-nav></app-nav>-->
+<!-- Nav -->
+<!-- Todos -->
+<app-todos [tasks]="tasks"></app-todos>
+<!-- Todos -->

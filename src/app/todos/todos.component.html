@@ -1,0 +1,8 @@
+<div class="tab-content" id="ex1-content">
+    <div *ngFor="let task of tasks" class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+        <ul class="list-group mb-0">
+            <app-todo [task]="task"></app-todo>
+        </ul>
+    </div>
+
+</div>
