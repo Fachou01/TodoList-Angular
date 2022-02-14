@@ -7,7 +7,7 @@ import { TaskServiceService } from '../task-service.service';
   styleUrls: ['./todosapp.component.css']
 })
 export class TodosappComponent implements OnInit {
-
+  alert = false;
   task = '';
   tasks!: Tasks[];
   
@@ -18,8 +18,13 @@ export class TodosappComponent implements OnInit {
     
   }
   addTask(){
+    if(this.task !== ''){
+    this.alert = false;
     this.taskService.addTask(this.task,false);
     this.task ="";
+    }else{
+      this.alert = true
+    }
   }
 
 }

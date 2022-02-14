@@ -1,3 +1,6 @@
+<div *ngIf="alert" class="alert alert-danger" role="alert">
+    The task is empty !
+</div>
 <form (submit)="addTask()" class="d-flex justify-content-center align-items-center mb-4">
     <div class="form-outline flex-fill">
         <input type="text" id="form2" name="task" [(ngModel)]="task" class="form-control" placeholder="New task..." />
