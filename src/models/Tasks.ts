@@ -1,9 +1,11 @@
 export class Tasks {
-   content!: string;
-   completed!: boolean;
+    id!:number;
+    description!: string;
+    createdAt!: Date;
+    //completed!: boolean;
 
-   constructor(content : string,completed : boolean){
-       this.content = content;
-       this.completed = completed;
+   constructor(content : string){
+       this.description = content;
+       //this.completed = completed;
    }
 }

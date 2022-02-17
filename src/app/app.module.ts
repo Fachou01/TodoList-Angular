@@ -12,6 +12,7 @@ import { PopupRemoveComponent } from './popup-remove/popup-remove.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     MatDialogModule,
     NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
