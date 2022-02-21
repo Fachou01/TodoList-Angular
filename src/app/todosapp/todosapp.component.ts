@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Tasks } from 'src/models/Tasks';
 import { TaskServiceService } from '../task-service.service';
 
@@ -12,18 +13,18 @@ export class TodosappComponent implements OnInit {
   task = '';
   tasks!: Tasks[];
   
-  constructor(private taskService : TaskServiceService) { }
+  constructor(private taskService : TaskServiceService,private router : Router) { }
 
   ngOnInit(): void {
    this.taskService.getTasks().subscribe({
      next: (tasks : Tasks[])=> {
        this.tasks = tasks;
        //console.log(this.tasks);
-       console.log(typeof(tasks));
+       console.log((tasks));
        return(this.tasks);
       },
      error:err => {
-       //console.log(err);
+       console.log(err);
        return(this.tasks);
       }
    });
@@ -41,6 +42,11 @@ export class TodosappComponent implements OnInit {
     }else{
       this.alert = true
     }
+  }
+  logout(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    this.router.navigateByUrl("/admin");
   }
 
 }

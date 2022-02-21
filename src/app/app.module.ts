@@ -12,11 +12,14 @@ import { PopupRemoveComponent } from './popup-remove/popup-remove.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { AgentComponent } from './agent/agent.component';
 import { HomeComponent } from './home/home.component';
 import { AgentPageComponent } from './agent-page/agent-page.component'
+import { TokenInterceptorService } from './token-interceptor.service';
+import { LoginGuard } from './guards/login.guard';
+import { LogAgentGuard } from './guards/logAgent.guard';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,13 @@ import { AgentPageComponent } from './agent-page/agent-page.component'
     NgbModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi:true
+  },
+  LoginGuard,
+  LogAgentGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

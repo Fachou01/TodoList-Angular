@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-agent-page',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgentPageComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
+
+  logoutAgent(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    this.router.navigateByUrl("/agent");
+  }
+
+ 
 
 }
