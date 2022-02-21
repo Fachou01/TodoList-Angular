@@ -1,4 +1,4 @@
-<li class="list-group-item align-items-center border-0 mb-0 rounded" style="background-color: #f4f6f7;">
+<li class="list-group-item align-items-center border-0 mb-0 rounded todo" style="background-color: #f4f6f7;">
     <div class="d-flex justify-content-between">
         <div>
             <input (click)="checkTask()" class="form-check-input me-2" type="checkbox" value="" aria-label="..." />
@@ -12,36 +12,36 @@
     </div>
 </li>
 <ng-template #removeContent let-modal>
-    <div class="modal-body">
+    <div class="modal-body todo">
         <form>
             <div class="form-group">
                 <h3>Are you sure to remove this task ? </h3>
             </div>
         </form>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer  todo">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cancel')">Cancel</button>
         <button type="button" class="btn btn-danger" (click)="modal.close('confirm')">Confirm</button>
     </div>
 </ng-template>
 
 <ng-template #editContent let-modal>
-    <div class="modal-header">
+    <!--<div class="modal-header todo">
         <h4 class="modal-title" id="modal-basic-title">Task update</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
+        <button type="button" class="btn-close cls" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>-->
+    <div class="modal-body todo pt-5">
         <form>
             <div class="mb-3">
                 <label for="description">New task description</label>
                 <div class="input-group">
-                    <input id="description" class="form-control" [(ngModel)]="editedTask" name="editedTask" value="{{task.description}}"  ngbDatepicker
+                    <input type="text" id="description" class="form-control" [(ngModel)]="editedTask" name="editedTask" value="{{task.description}}"  ngbDatepicker
                         #dp="ngbDatepicker">
                 </div>
             </div>
         </form>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer todo">
         <button type="button" class="btn btn-outline-warning" (click)="modal.close('edit')">Save</button>
     </div>
 </ng-template>

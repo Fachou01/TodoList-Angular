@@ -33,8 +33,8 @@ export class TodosappComponent implements OnInit {
     this.alert = false;
     this.taskService.addTask(this.task,false).subscribe({
       next : (task : Tasks) => {console.log(task);
-        //this.tasks.push(task);
-        this.ngOnInit();
+        this.tasks.push(task);
+        //this.ngOnInit();
       }
     });
     this.task ="";

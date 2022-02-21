@@ -1,0 +1,33 @@
+/*.gradient-custom {
+  background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
+    linear-gradient(121.28deg, #669600 0%, #ff0000 100%),
+    linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
+    radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
+    radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
+  background-blend-mode: screen, color-dodge, overlay, difference, normal;
+}*/
+
+body {
+  background: #222d32;
+  font-family: "Roboto", sans-serif;
+}
+.todoForm {
+  background: #1a2226;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+input[type="text"] {
+  background-color: #1a2226;
+  border: none;
+  border-bottom: 2px solid #0d6efd;
+  border-top: 0px;
+  border-radius: 0px;
+  outline: 0;
+  margin-bottom: 20px;
+  padding-left: 0px;
+  color: #ecf0f5;
+}
+
+textarea:focus,
+input:focus {
+  outline: none !important;
+}

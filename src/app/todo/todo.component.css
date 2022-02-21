@@ -1,3 +1,23 @@
 .line {
   text-decoration: line-through;
 }
+.todo {
+  background: #1a2226 !important;
+  color: white;
+}
+.btn-outline-dark {
+  background-color: white !important;
+}
+.btn-outline-dark:hover {
+  color: black !important;
+}
+input[type="text"] {
+  background-color: #1a2226;
+  outline: 0;
+  margin-bottom: 20px;
+  padding-left: 0px;
+  color: #ecf0f5;
+}
+.cls {
+  color: white;
+}
