@@ -24,11 +24,12 @@ export class AdminComponent implements OnInit {
     }
     this.adminService.loginUser(crediantials).subscribe({
      next: (token : any)=> {
-      //console.log(token)
-       //return(token);
+       //test of role and token existence
        if(token.role==="agent"){
+         //page erreur
         this.router.navigateByUrl('/');
        }else if(token.access_token){
+        //set token to localstorage
        localStorage.setItem("token",token.access_token);
        localStorage.setItem("role",token.role);
        this.router.navigateByUrl("/todos");
