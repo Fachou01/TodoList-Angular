@@ -47,6 +47,14 @@
             </a>
         </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" [routerLink]="['todos']" routerLinkActive="text-white" data-toggle="collapse" data-target="#collapseUtilities"
+           aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench" routerLinkActive="text-white" routerLinkActive="text-white" ></i>
+          <span>Todos</span>
+        </a>
+      </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -134,10 +142,16 @@
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
+                  <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link " routerLink="/" id="userDropdown1" role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                      <span class="mr-2 d-none d-lg-inline text-gray-600 small" (click)="logoutDash()">Logout</span>
+                      </a>
+
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">User</span>
                             <img class="img-profile rounded-circle" src="https://media.istockphoto.com/vectors/user-icon-flat-isolated-on-white-background-user-symbol-vector-vector-id1300845620?k=20&m=1300845620&s=612x612&w=0&h=f4XTZDAv7NPuZbG0habSpU0sNgECM0X7nbKzTUta3n8=">
                         </a>
                         <!-- Dropdown - User Information -->
