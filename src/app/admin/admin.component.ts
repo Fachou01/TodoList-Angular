@@ -32,7 +32,7 @@ export class AdminComponent implements OnInit {
         //set token to localstorage
        localStorage.setItem("token",token.access_token);
        localStorage.setItem("role",token.role);
-       this.router.navigateByUrl("/todos");
+       this.router.navigateByUrl("/dashboard");
        }
       },
      error:err => {

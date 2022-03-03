@@ -22,6 +22,8 @@ import { LoginGuard } from './guards/login.guard';
 import { LogAgentGuard } from './guards/logAgent.guard';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { AgentsDetailsComponent } from './dashboard/agents-details/agents-details.component';
+import { CompaignsDetailsComponent } from './dashboard/compaigns-details/compaigns-details.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
     HomeComponent,
     AgentPageComponent,
     ErrorPageComponent,
-    DashboardComponent
+    DashboardComponent,
+    AgentsDetailsComponent,
+    CompaignsDetailsComponent
   ],
   imports: [
     BrowserModule,
