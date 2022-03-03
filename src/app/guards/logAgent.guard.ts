@@ -13,7 +13,7 @@ export class LogAgentGuard implements CanActivate{
         //throw new Error("Method not implemented.");
         const role = localStorage.getItem("role");
         if(role =="agent"){
-            this.router.navigateByUrl('/agentPage');
+            this.router.navigateByUrl('/error');
             return (false);
         }else{
         return(true);

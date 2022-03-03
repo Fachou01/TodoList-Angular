@@ -13,7 +13,7 @@ export class LoginGuard implements CanActivate{
         //get token from local storage
         const token = localStorage.getItem("token");
         if(!!token ==false){
-            this.router.navigateByUrl('/');
+            this.router.navigateByUrl('/error');
             return (false);
         }else{
         return(true);

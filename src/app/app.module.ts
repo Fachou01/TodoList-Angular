@@ -20,6 +20,7 @@ import { AgentPageComponent } from './agent-page/agent-page.component'
 import { TokenInterceptorService } from './token-interceptor.service';
 import { LoginGuard } from './guards/login.guard';
 import { LogAgentGuard } from './guards/logAgent.guard';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LogAgentGuard } from './guards/logAgent.guard';
     AdminComponent,
     AgentComponent,
     HomeComponent,
-    AgentPageComponent
+    AgentPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

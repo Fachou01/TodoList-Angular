@@ -27,7 +27,7 @@ export class AdminComponent implements OnInit {
        //test of role and token existence
        if(token.role==="agent"){
          //page erreur
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/error');
        }else if(token.access_token){
         //set token to localstorage
        localStorage.setItem("token",token.access_token);
