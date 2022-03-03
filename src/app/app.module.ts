@@ -21,6 +21,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { LoginGuard } from './guards/login.guard';
 import { LogAgentGuard } from './guards/logAgent.guard';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     AgentComponent,
     HomeComponent,
     AgentPageComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
