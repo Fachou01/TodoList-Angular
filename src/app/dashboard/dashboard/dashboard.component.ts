@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {TaskServiceService} from "../../task-service.service";
+import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ import {TaskServiceService} from "../../task-service.service";
 export class DashboardComponent implements OnInit {
   private router: any;
 
-  constructor( private taskservice :TaskServiceService, router : Router) { }
+  constructor( private dashboardService :DashboardService, router : Router) { }
 
   ngOnInit(): void {
   }
