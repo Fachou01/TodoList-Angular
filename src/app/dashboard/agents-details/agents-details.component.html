@@ -1,34 +1,29 @@
-<div class="row">
-  <div class="col-10">
-    <div class="list-group"  *ngFor="let agent of agents">
-      <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center ">
-        <div>
-          <div class="d-flex w-100 justify-content-between">
-            <small class="text-muted">{{agent.role}}</small>
-          </div>
-          <p class="mb-1">{{agent.id}}</p>
-          <small class="text-muted">{{agent.createdAt}}</small>
-        </div>
-        <div>
-          <button type="button"  (click)="open(editContent)" (click)="getUserToEdit(agent)" class="btn btn-warning mx-2 text-white">Edit</button>
-          <button type="button" (click)="open(deleteContent)" (click)="getUserFromTemplate(agent)" class="btn btn-danger text-white">Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-2">
-    <div>
-      <button type="button" class="btn btn-primary text-white cb" (click)="open(addContent)">Add user</button>
-    </div>
-  </div>
+<div class="text-end" (click)="open(addContent)">
+  <i class="fa-solid fa-circle-plus add"></i>
 </div>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped table-hover dt">
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>ID</th>
+      <th>Creation date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="ag" *ngFor="let person of agents"  [routerLink]="['./',person.id]">
+      <td>{{ person.role }}</td>
+      <td>{{ person.id }}</td>
+      <td>{{ person.createdAt | date: 'dd-MM-yyyy' }}</td>
+    </tr>
+  </tbody>
+</table>
 
 <ng-template #addContent let-modal>
   <div class="modal-body todo pt-5">
     <form>
       <div class="form-group mb-2">
         <label>ID</label>
-        <input type="Number" class="form-control" name="id" [(ngModel)]="id" id="id" aria-describedby="emailHelp"
+        <input type="Number" class="form-control" name="id"  [(ngModel)]="id" id="id" aria-describedby="emailHelp"
           placeholder="Id">
       </div>
       <div class="form-group mb-2">
@@ -44,55 +39,9 @@
         <option value="agent">Agent</option>
       </select>
       <div class="text-center">
-      <button type="button" class="btn btn-outline-dark mx-2" (click)="modal.close('Cancel')">Cancel</button>
-      <button type="submit" (click)="modal.close('add')" class="btn btn-primary px-4 cb">Add</button>
-      </div>
-    </form>
-    
-  </div>
-</ng-template>
-
-<ng-template #editContent let-modal>
-  <div class="modal-body todo pt-5">
-    <form>
-      <div class="form-group mb-2">
-        <label>ID</label>
-        <input type="Number" class="form-control" name="editId" [(ngModel)]="editId" id="editId" aria-describedby="emailHelp"
-          placeholder="Id">
-      </div>
-      <div class="form-group mb-2">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="text" class="form-control" name="editPassword" [(ngModel)]="editPassword" id="exampleInputPassword1"
-          placeholder="Password">
-      </div>
-      <label for="exampleSelectRole">Role</label>
-      <select id="exampleSelectRole" name="editRole" [(ngModel)]="editRole" class="form-select mb-3"
-        aria-label="Default select example">
-        <option selected>Choose user role</option>
-        <option value="admin">Admin</option>
-        <option value="agent">Agent</option>
-      </select>
-      <div class="text-center">
         <button type="button" class="btn btn-outline-dark mx-2" (click)="modal.close('Cancel')">Cancel</button>
-        <button type="submit" (click)="modal.close('edit')" class="btn btn-warning text-white px-4">Edit</button>
-      </div>
-    </form>
-
-  </div>
-</ng-template>
-
-<ng-template #deleteContent let-modal>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <h3>Are you sure to remove this user ? </h3>
+        <button type="submit" (click)="modal.close('add')" class="btn btn-primary px-4 cb">Add</button>
       </div>
     </form>
   </div>
-  <div class="modal-footer ">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cancel')">Cancel</button>
-    <button type="button" class="btn btn-danger" (click)="modal.close('delete')">Confirm</button>
-  </div>
 </ng-template>
-
-

@@ -1,0 +1,9 @@
+.nv {
+  cursor: pointer;
+  color: #4e73df !important;
+}
+
+.active {
+  background-color: #4e73df !important;
+  color: white !important;
+}

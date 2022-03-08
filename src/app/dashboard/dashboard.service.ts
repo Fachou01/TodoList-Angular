@@ -17,6 +17,12 @@ export class DashboardService {
     return(this.http.get<User[]>(`${this.url}/getall`))
 
   }
+
+  getAgentById(id : number) : Observable<User>{
+    return(this.http.get<User>(`${this.url}/getbyid/${id}`))
+
+  }
+
   addUser(id: number,password: string,role: string) : Observable<any>{
     this.user = new User(id,password,role);
     return(this.http.post<any>(`${this.url}/add`,this.user));

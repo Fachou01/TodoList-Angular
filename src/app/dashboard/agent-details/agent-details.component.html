@@ -1,0 +1,16 @@
+<ul class="nav nav-tabs nv">
+    <li class="nav-item">
+        <a class="nav-link active" [routerLink]="['../',agentId]" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">
+            Details
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [routerLink]="['./campaignsdetails']" routerLinkActive="active">Campaigns</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link">To be continued</a>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>

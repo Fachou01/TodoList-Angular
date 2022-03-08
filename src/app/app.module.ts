@@ -24,6 +24,12 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { AgentsDetailsComponent } from './dashboard/agents-details/agents-details.component';
 import { CompaignsDetailsComponent } from './dashboard/compaigns-details/compaigns-details.component';
+import { DataTablesModule } from 'angular-datatables';
+import { DashboardInformationsComponent } from './dashboard/dashboard-informations/dashboard-informations.component';
+import { AgentDetailsComponent } from './dashboard/agent-details/agent-details.component';
+import { AgentGeneralDetailsComponent } from './dashboard/agent-details/agent-general-details/agent-general-details.component';
+import { CampaignsGeneralDetailsComponent } from './dashboard/agent-details/campaigns-general-details/campaigns-general-details.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +46,11 @@ import { CompaignsDetailsComponent } from './dashboard/compaigns-details/compaig
     ErrorPageComponent,
     DashboardComponent,
     AgentsDetailsComponent,
-    CompaignsDetailsComponent
+    CompaignsDetailsComponent,
+    DashboardInformationsComponent,
+    AgentDetailsComponent,
+    AgentGeneralDetailsComponent,
+    CampaignsGeneralDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +59,8 @@ import { CompaignsDetailsComponent } from './dashboard/compaigns-details/compaig
     BrowserAnimationsModule,
     MatDialogModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,
