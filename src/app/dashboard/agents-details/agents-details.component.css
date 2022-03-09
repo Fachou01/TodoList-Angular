@@ -24,3 +24,8 @@
   right: 0;
   z-index: 2;
 }
+
+.add:hover {
+  font-size: 2.6rem;
+  color: #456ee7;
+}
