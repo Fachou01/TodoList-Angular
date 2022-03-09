@@ -78,7 +78,7 @@ export class AgentGeneralDetailsComponent implements OnInit {
         this.dashboardService.editUser(newAgent).subscribe({
           next: (user)=> {
             console.log(user);
-            this.router.navigateByUrl('/dashboard/agents');
+            this.router.navigateByUrl('/dashboard/agents',{state: {edit: "success"}});
           },
           error : ()=> console.log("error")
         });
@@ -89,7 +89,7 @@ export class AgentGeneralDetailsComponent implements OnInit {
     console.log(this.agent);
     this.dashboardService.deleteUser(id).subscribe({
         next : ()=> {
-          this.router.navigateByUrl('/dashboard/agents');
+          this.router.navigateByUrl('/dashboard/agents',{state: {delete: "success"}});
         },
         error : ()=> console.log("error")
       })

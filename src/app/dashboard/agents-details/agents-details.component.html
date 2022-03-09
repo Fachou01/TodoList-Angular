@@ -18,6 +18,18 @@
   </tbody>
 </table>
 
+<div *ngIf="stateAdd" class="alert alert-success mt-4 scale-up-hor-left" role="alert">
+  User added successfully.
+</div>
+
+<div *ngIf="urlStateEdit" class="alert alert-success mt-4 scale-up-hor-left" role="alert">
+  User edited successfully.
+</div>
+
+<div *ngIf="urlStateDelete" class="alert alert-success mt-4 scale-up-hor-left" role="alert">
+  User deleted successfully.
+</div>
+
 <ng-template #addContent let-modal>
   <div class="modal-body todo pt-5">
     <form>

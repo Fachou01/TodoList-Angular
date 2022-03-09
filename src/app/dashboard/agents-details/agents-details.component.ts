@@ -1,4 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
 import { User } from 'src/models/User';
@@ -21,14 +23,22 @@ export class AgentsDetailsComponent implements OnInit {
   closeResult: string | undefined;
   
   agents: User[] = [];
+  stateAdd: boolean = false;
+  urlStateEdit!: string;
+  urlStateDelete!: string;
 
   //Datatables add
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(private dashboardService : DashboardService,private modalService: NgbModal) { }
+  constructor(private dashboardService : DashboardService,
+    private modalService: NgbModal,
+    private router : Router) { }
 
   ngOnInit(): void {
+    this.getEditState();
+    this.getDeleteState();
+    
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
@@ -82,6 +92,10 @@ export class AgentsDetailsComponent implements OnInit {
        this.id = this.initialId;
        this.password = "";
        this.role = "Choose user role";
+       this.stateAdd = true;
+       setTimeout(()=>{
+         this.stateAdd = false;
+       },2000)
        console.log((agent));
        return(this.agents);
       },
@@ -90,6 +104,21 @@ export class AgentsDetailsComponent implements OnInit {
        return(this.agents);
       }
    });
+  }
+
+  async getEditState() {
+    this.urlStateEdit = window.history.state.edit;
+
+    setTimeout(()=>{
+      this.urlStateEdit = "";
+    },2000)
+  }
+
+  async getDeleteState() {
+    this.urlStateDelete = window.history.state.delete;
+    setTimeout(()=>{
+      this.urlStateDelete = "";
+    },2000)
   }
 
   ngOnDestroy(): void {
