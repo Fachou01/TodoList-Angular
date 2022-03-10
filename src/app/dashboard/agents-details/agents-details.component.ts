@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
@@ -27,6 +27,9 @@ export class AgentsDetailsComponent implements OnInit {
   urlStateEdit!: string;
   urlStateDelete!: string;
 
+  userConnected!: any;
+  addPermission!: boolean;
+
   //Datatables add
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
@@ -36,8 +39,27 @@ export class AgentsDetailsComponent implements OnInit {
     private router : Router) { }
 
   ngOnInit(): void {
+
+    this.dashboardService.getConnectedUser().subscribe({
+     next: (agent : any)=> {
+       this.userConnected = agent;
+        if(agent.addPermission == "true")
+          this.addPermission = true;
+          else {
+            this.addPermission = false ;
+          }
+       //console.log((agents));
+       return(this.userConnected);
+      },
+     error:err => {
+       //console.log(err);
+       return(this.userConnected);
+      }
+   });
+
     this.getEditState();
     this.getDeleteState();
+   
     
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -51,11 +73,11 @@ export class AgentsDetailsComponent implements OnInit {
        setTimeout(() => {
          this.dtTrigger.next("");
        });
-       console.log((agents));
+       //console.log((agents));
        return(this.agents);
       },
      error:err => {
-       console.log(err);
+       //console.log(err);
        setTimeout(() => {
          this.dtTrigger.next("");
        });

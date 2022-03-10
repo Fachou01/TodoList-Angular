@@ -9,9 +9,8 @@ import { DashboardService } from '../dashboard.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  private router: any;
 
-  constructor( private dashboardService :DashboardService, router : Router) { }
+  constructor( private dashboardService :DashboardService, private router : Router) { }
 
   ngOnInit(): void {
   }

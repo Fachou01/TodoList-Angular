@@ -38,4 +38,7 @@ export class DashboardService {
     return(this.http.put(`${this.url}/update/${newAgent.id}`,newAgent));
 
   }
+   getConnectedUser() : Observable<any>{
+     return(this.http.get(`${this.url}/getconnecteduser`));
+   }
 }
