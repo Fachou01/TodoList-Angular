@@ -9,19 +9,19 @@ import { AdminService } from '../auth/auth.service';
 })
 export class AdminComponent implements OnInit {
 
-  id="";
-  password="";
-  
+  userNotFound : boolean = false;
+
   constructor(private adminService : AdminService,private router : Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
+  onSubmit(values: any){
     const crediantials = {
-      id:this.id,
-      password: this.password
+      id:values.id,
+      password: values.password
     }
+    console.log(values);
     this.adminService.loginUser(crediantials).subscribe({
      next: (token : any)=> {
        //test of role and token existence
@@ -33,6 +33,10 @@ export class AdminComponent implements OnInit {
        localStorage.setItem("token",token.access_token);
        localStorage.setItem("role",token.role);
        this.router.navigateByUrl("/dashboard");
+       }else{
+         values.id = "";
+         values.password = "";
+         this.userNotFound = true;
        }
       },
      error:err => {

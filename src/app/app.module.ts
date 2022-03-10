@@ -29,6 +29,8 @@ import { DashboardInformationsComponent } from './dashboard/dashboard-informatio
 import { AgentDetailsComponent } from './dashboard/agent-details/agent-details.component';
 import { AgentGeneralDetailsComponent } from './dashboard/agent-details/agent-general-details/agent-general-details.component';
 import { CampaignsGeneralDetailsComponent } from './dashboard/agent-details/campaigns-general-details/campaigns-general-details.component';
+import { AdminOptionsComponent } from './dashboard/agent-details/admin-options/admin-options.component';
+import { AgentOptionsComponent } from './dashboard/agent-details/agent-options/agent-options.component';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { CampaignsGeneralDetailsComponent } from './dashboard/agent-details/camp
     AgentDetailsComponent,
     AgentGeneralDetailsComponent,
     CampaignsGeneralDetailsComponent,
+    AdminOptionsComponent,
+    AgentOptionsComponent,
   ],
   imports: [
     BrowserModule,

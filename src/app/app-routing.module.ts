@@ -3,8 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { AgentPageComponent } from './agent-page/agent-page.component';
 import { AgentComponent } from './agent/agent.component';
+import { AdminOptionsComponent } from './dashboard/agent-details/admin-options/admin-options.component';
 import { AgentDetailsComponent } from './dashboard/agent-details/agent-details.component';
 import { AgentGeneralDetailsComponent } from './dashboard/agent-details/agent-general-details/agent-general-details.component';
+import { AgentOptionsComponent } from './dashboard/agent-details/agent-options/agent-options.component';
 import { CampaignsGeneralDetailsComponent } from './dashboard/agent-details/campaigns-general-details/campaigns-general-details.component';
 import { AgentsDetailsComponent } from './dashboard/agents-details/agents-details.component';
 import { CompaignsDetailsComponent } from './dashboard/compaigns-details/compaigns-details.component';
@@ -26,8 +28,9 @@ const routes: Routes = [
     {path : "agents/:id" , component : AgentDetailsComponent ,
   children : [
       {path: "" , component :AgentGeneralDetailsComponent},
-      {path: "campaignsdetails" , component :CampaignsGeneralDetailsComponent},
-      
+      {path: "adminoptions" , component :AdminOptionsComponent},
+      {path: "agentoptions" , component :AgentOptionsComponent}
+    
   ]},
     {path : "compaigns" , component : CompaignsDetailsComponent}
   ]},

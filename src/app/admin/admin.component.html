@@ -11,14 +11,17 @@
 
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">
-                    <form  (ngSubmit)="onSubmit()">
+                    <form #f="ngForm"  (ngSubmit)="onSubmit(f.value)">
+                        <div class="alert alert-danger" *ngIf="userNotFound" role="alert">
+                            ID or PASSWORD are invalid. try again !
+                        </div>
                         <div class="form-group">
                             <label class="form-control-label">ID</label>
-                            <input type="number" name="id" [(ngModel)]="id" class="form-control">
+                            <input type="number" ngModel name="id" required  class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="form-control-label">PASSWORD</label>
-                            <input type="password" name="password" [(ngModel)]="password" class="form-control" i>
+                            <input type="password" ngModel name="password" required  class="form-control" i>
                         </div>
 
                         <div class="col-lg-12 loginbttm">
@@ -26,7 +29,7 @@
                                 <!-- Error Message -->
                             </div>
                             <div class="col-lg-6 login-btm login-button">
-                                <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                                <button type="submit" class="btn btn-outline-primary" [disabled]="f.invalid">LOGIN</button>
                             </div>
                         </div>
                     </form>
