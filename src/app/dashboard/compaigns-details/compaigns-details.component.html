@@ -1,11 +1,17 @@
-<form>
-  <div class="form-group">
-    <label >ID</label>
-    <input type="Number" class="form-control" id="id" aria-describedby="emailHelp" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <label >Nom de compaign</label>
-    <input type="text" class="form-control" id="text" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+<table class="table table-striped ">
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>ID</th>
+      <th>Creation date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="ag" *ngFor="let user of users | async" [routerLink]="['./',user.id]">
+      <td>{{ user.role }}</td>
+      <td>{{ user.id }}</td>
+      
+    </tr>
+  </tbody>
+</table>

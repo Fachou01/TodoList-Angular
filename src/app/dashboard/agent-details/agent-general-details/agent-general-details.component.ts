@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Store } from '@ngrx/store';
+import { deleteUser } from 'src/app/store/actions';
 import { User } from 'src/models/User';
 import { DashboardService } from '../../dashboard.service';
 
@@ -23,7 +25,8 @@ export class AgentGeneralDetailsComponent implements OnInit {
     private dashboardService : DashboardService,
     private modalService: NgbModal,
     private route : ActivatedRoute,
-    private router : Router) { }
+    private router : Router,
+    private store : Store) { }
 
   ngOnInit(): void {
     this.route.params
@@ -75,24 +78,25 @@ export class AgentGeneralDetailsComponent implements OnInit {
       role : this.role
       
     }
-        this.dashboardService.editUser(newAgent).subscribe({
+        /*this.dashboardService.editUser(newAgent).subscribe({
           next: (user)=> {
             console.log(user);
             this.router.navigateByUrl('/dashboard/agents',{state: {edit: "success"}});
           },
           error : ()=> console.log("error")
-        });
+        });*/
         
   }
 
    deleteUser(id : number){
     console.log(this.agent);
-    this.dashboardService.deleteUser(id).subscribe({
+    /*this.dashboardService.deleteUser(id).subscribe({
         next : ()=> {
           this.router.navigateByUrl('/dashboard/agents',{state: {delete: "success"}});
         },
         error : ()=> console.log("error")
-      })
+      })*/
+      this.store.dispatch(deleteUser({id:id}));
   }
 
 }

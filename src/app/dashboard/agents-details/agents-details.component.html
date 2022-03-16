@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="ag" *ngFor="let person of agents"  [routerLink]="['./',person.id]">
+    <tr class="ag" *ngFor="let person of agents | async"  [routerLink]="['./',person.id]">
       <td>{{ person.role }}</td>
       <td>{{ person.id }}</td>
       <td>{{ person.createdAt | date: 'dd-MM-yyyy' }}</td>

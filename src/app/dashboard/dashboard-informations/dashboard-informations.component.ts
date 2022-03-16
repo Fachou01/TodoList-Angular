@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { map, Observable } from 'rxjs';
+import { AppState } from 'src/app/store/app.state';
+import { selectAllUsers } from 'src/app/store/selectors';
 import { User } from 'src/models/User';
 import { DashboardService } from '../dashboard.service';
 
@@ -9,22 +13,30 @@ import { DashboardService } from '../dashboard.service';
 })
 export class DashboardInformationsComponent implements OnInit {
 
-  constructor(private dashboardService : DashboardService) { }
+  agents !: Observable<any>
+  agentsLength !: number
 
-  agents : User [] = []
+  constructor(private dashboardService : DashboardService, private store :Store<AppState>) { }
+
   ngOnInit(): void {
 
-    this.dashboardService.getAgents().subscribe({
+    
+    this.agents = this.store.select(selectAllUsers);
+    this.agents.subscribe((data)=>{
+      //console.log(data)
+      this.agentsLength = data.length
+    })
+    /*this.dashboardService.getAgents().subscribe({
      next: (agents : User[])=> {
        this.agents = agents;
-       console.log((agents));
+       //console.log((agents));
        return(this.agents);
       },
      error:err => {
-       console.log(err);
+       //console.log(err);
        return(this.agents);
       }
-   });
+   });*/
   }
 
 }

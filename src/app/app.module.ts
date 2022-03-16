@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import {MatDialogModule} from '@angular/material/dialog';
+import {StoreModule} from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodosComponent } from './todos/todos.component';
@@ -31,7 +32,9 @@ import { AgentGeneralDetailsComponent } from './dashboard/agent-details/agent-ge
 import { CampaignsGeneralDetailsComponent } from './dashboard/agent-details/campaigns-general-details/campaigns-general-details.component';
 import { AdminOptionsComponent } from './dashboard/agent-details/admin-options/admin-options.component';
 import { AgentOptionsComponent } from './dashboard/agent-details/agent-options/agent-options.component';
-
+import { userReducer } from './store/reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { UsersEffects } from './store/effects';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,9 @@ import { AgentOptionsComponent } from './dashboard/agent-details/agent-options/a
     MatDialogModule,
     NgbModule,
     HttpClientModule,
-    DataTablesModule
+    DataTablesModule,
+    StoreModule.forRoot({users : userReducer}),
+    EffectsModule.forRoot([UsersEffects])
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,

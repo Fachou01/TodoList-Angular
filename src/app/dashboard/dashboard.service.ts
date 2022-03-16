@@ -23,9 +23,9 @@ export class DashboardService {
 
   }
 
-  addUser(id: number,password: string,role: string) : Observable<any>{
-    this.user = new User(id,password,role);
-    return(this.http.post<any>(`${this.url}/add`,this.user));
+  addUser(user : User) : Observable<any>{
+    //this.user = new User(id,password,role);
+    return(this.http.post<any>(`${this.url}/add`,user));
 
   }
 
@@ -33,11 +33,11 @@ export class DashboardService {
     return(this.http.delete(`${this.url}/delete/${id}`));
 
   }
-  editUser(agent : any){
+  /*editUser(agent : any){
     const newAgent = new User(agent.id,agent.password,agent.role);
     return(this.http.put(`${this.url}/update/${newAgent.id}`,newAgent));
 
-  }
+  }*/
    getConnectedUser() : Observable<any>{
      return(this.http.get(`${this.url}/getconnecteduser`));
    }

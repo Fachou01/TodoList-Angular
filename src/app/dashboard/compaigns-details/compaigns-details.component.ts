@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
+import { selectAllUsers } from 'src/app/store/selectors';
 
 @Component({
   selector: 'app-compaigns-details',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompaignsDetailsComponent implements OnInit {
 
-  constructor() { }
+  users = this.store.select(selectAllUsers)
+
+  constructor(private store : Store<AppState>) { }
 
   ngOnInit(): void {
+    console.log(this.users);
+    
   }
 
 }
